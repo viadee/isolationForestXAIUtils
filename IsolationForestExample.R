@@ -4,12 +4,12 @@ library(dplyr)
 library(ggplot2)
 source("./XAIUtils.R") # library to explain isolationForest
 titanic = read.csv("./titanic.csv")
+h2o.init()
 
 # 2. generate train and test data
 train = titanic[1:round(nrow(titanic)*0.8),]
 test = titanic[round(nrow(titanic)*0.8):nrow(titanic),]
 
-h2o.init()
 trainh2o = as.h2o(train[,c(-1,-2,-3,-12)]) # remove useless columns (e.g. IDs)
 testh2o = as.h2o(test[,c(-1,-2,-3,-12)])
 
@@ -40,4 +40,3 @@ findShortestPath(model_iso, iso_anomaly[6,])
 findShortestPath(model_iso, iso_anomaly[7,])
 
 
-train %>% filter(Survived < 0.5) %>% filter(SibSp > 6.5)
