@@ -9,11 +9,11 @@ In the Isolation Forest, the partitioning of data is carried out several times u
 
 ### XAI-Approach
 
-The function *findShortestPath* is used to reveal why a particular observation is an anomaly. The function expects two parameters: an observation (for our purpose an identified anomaly) and the Isolation Forest model. The algorithm traverses all trees in the Isolation Forest and determines the length of the path from the root to the observation. The path that isolates the anomaly fastest (shortest path) represents the basis for the explanation of the anomaly. The features lying on this shortest path represent unusual values or combinations of values and are therefore responsible for classifying the observation as an anomaly.
+The function *findShortestPath* is used to reveal why a particular observation is an anomaly. The function expects two parameters: an observation (for our purpose an identified anomaly) and the Isolation Forest model. The algorithm traverses all trees in the Isolation Forest and determines the length of the path from the root to the observationof each tree. The path that isolates the anomaly fastest (shortest path) represents the basis for the explanation of the anomaly. The features lying on this shortest path represent unusual values or combinations of values and are thus declared as responsible for classifying the observation as an anomaly.
 
 ### Example 
 
-In the following we want to apply the Isolation Forest and our XAI-Approach to the [Titanic dataset of the kaggle Challenge](https://www.kaggle.com/biswajee/titanic-dataset). The dataset contains information about Titanic passengers such as their age, gender or name. We preprocessed the [dataset](https://github.com/viadee/isolationForestXAIUtils/blob/master/titanic.csv) and made it available in this git repository: The preprocessing was necessary because our anomaly explanation approach only works on numerical values. For this reason, all non-numerical features were transformed in advance. In general, however, an Isolation Forest can be applied to any data type and scale level of the features.
+In the following we want to apply the Isolation Forest and our new XAI-Approach to the [Titanic dataset of the kaggle Challenge](https://www.kaggle.com/biswajee/titanic-dataset). The dataset contains information about Titanic passengers such as their age, gender or name. We preprocessed the [dataset](https://github.com/viadee/isolationForestXAIUtils/blob/master/titanic.csv) and made it available in this git repository: The preprocessing was necessary because our anomaly explanation approach only works on numerical values. For this reason, all non-numerical features were transformed in advance. In general, however, an Isolation Forest can be applied to any data type and scale level of the features.
 
 The first step is to identify anomalies. First the data has to be loaded and an Isolation Forest model has to be trained.
 
@@ -58,4 +58,4 @@ In the last step we aim to explain the detected anomalies. We do this exemplary 
 findShortestPath(model_iso, iso_anomaly[5,])
 ```
 
-The results shows that Passenger 827 was classified as an anomaly because he did not survive and has more than 6.5 parents and siblings.
+The result shows that Passenger 827 was classified as an anomaly because he did not survive and has more than 6.5 parents and siblings.
