@@ -59,3 +59,11 @@ findShortestPath(model_iso, iso_anomaly[5,])
 ```
 
 The result shows that Passenger 827 was classified as an anomaly because he did not survive and has more than 6.5 parents and siblings.
+
+# Cooperation
+
+This library will remain under an open source licence indefinately.
+
+Feel free to report issues, questions, ideas or patches. We are looking forward to it.
+
+First of all no performance optimization has been conducted as of now - this is a quick prototype created during the evalation of the new h2o-functionality. 
