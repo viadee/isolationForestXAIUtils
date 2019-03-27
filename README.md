@@ -1,4 +1,4 @@
-# An XAI-Approach for Anomaly Detection with Isolation Forest 
+# An XAI-Approach for Anomaly Detection with h2o Isolation Forests
 
 The Isolation Forest approach for anomaly detection developed by H2o is able to detect anomalies in a very simple way. However, the approach does not yet provide any indication of how the algorithm derives the detected anomalies. Thus, we provide a new functionality to make the results of the Isolation Forest traceable and comprehensible.
 
