@@ -51,9 +51,15 @@ traverseTree = function(anomaly,isoTree){
   return(recursiveTree(root,feature,threshold,documentation,anomaly))
 }
 
-
-# find shortest path of isolation forest
-# if there are multiple shortest paths return the last one
+#' Find shortest path of an h2o isolation forest.
+#'
+#' If there are multiple shortest paths return the last one.
+#' Access to h2o is assumed.
+#'
+#' @param isoForest The forest to explain.
+#' @param anomaly A particular case to explain.
+#' @keywords h2o, Isolation Forest, XAI
+#' @export
 findShortestPath = function(isoForest,anomaly){
   tree = h2o.getModelTree(model = isoForest, tree_number = 1)
   shortestPath = traverseTree(anomaly,tree)
@@ -70,7 +76,7 @@ findShortestPath = function(isoForest,anomaly){
 }
 
 
-# if there are multiple shortest paths (with same length)
+# If there are multiple shortest paths (with same length)
 # find all of them (including their split features and thresholds)
 findShortestPaths = function(isoForest,anomaly){
   tree = h2o.getModelTree(model = isoForest, tree_number = 1)
